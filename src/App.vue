@@ -10,16 +10,19 @@
                  @deleteItem="handleDelete">
       </todo-item>
     </ul>
+    <uploader></uploader>
   </div>
 </template>
 
 <script>
 import TodoItem from './components/TodoItem'
+import Uploader from './components/Uploader'
 
 export default {
   name: 'App',
   components: {
-      'todo-item': TodoItem
+      'todo-item': TodoItem,
+      'uploader': Uploader
   },
   data () {
       return {

@@ -1,5 +1,5 @@
 {
-  "name": "todolist",
+  "name": "uploader-front",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "ftk",
@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "element-ui": "^2.4.6",
     "vue": "^2.5.2"
   },
   "devDependencies": {
