@@ -2979,9 +2979,13 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/isobject/download/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
-js-base64@^2.1.9:
+js-base64@^2.1.9, js-base64@^2.4.8:
   version "2.4.8"
   resolved "http://registry.npm.taobao.org/js-base64/download/js-base64-2.4.8.tgz#57a9b130888f956834aa40c5b165ba59c758f033"
+
+js-md5@^0.7.3:
+  version "0.7.3"
+  resolved "http://registry.npm.taobao.org/js-md5/download/js-md5-0.7.3.tgz#b4f2fbb0b327455f598d6727e38ec272cd09c3f2"
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"

@@ -3,6 +3,7 @@
         <uploader ref="uploader"
                   :options="options"
                   @file-added="handleFileAdded"
+                  @file-success="handleFileSuccess"
                   class="uploader-example">
         </uploader>
     </div>
@@ -11,7 +12,7 @@
 
 <script>
     import md5 from 'js-md5';
-
+    import {store, DispatchActions} from '~/store';
     export default {
         name: 'MyUploader',
         data () {
@@ -61,12 +62,33 @@
                 // file.identifier = md5(file.name + file.size)
                 // console.log("current task handleFileAdded, file:" + file, + "event:" + event)
             },
+            handleFileSuccess(rootFile, file, message, chunk) {
+                console.log(file)
+                console.log(chunk)
+                if(file.chunks.length == 1) {
+                    console.log("chunk length == 1, return")
+                    return
+                }
+                store.dispatch(DispatchActions.UPLOAD_MERGE, {
+                    params: {
+                        filename: file.name,
+                        identifier: file.uniqueIdentifier
+                    }
+                }).then(() => {
+                        console.log("chunks merged")
+                    },
+                    response => {
+                        this.$alert(response.message)
+                    });
+            },
 
 
             generateIdentifier(file) {
-                file.uniqueIdentifier = md5(file.name + file.size)
-                console.log(file.uniqueIdentifier)
                 console.log(file)
+                if(file != null) {
+                    return md5(file.name + file.size)
+                }
+                return "undefined"
             }
         }
     }

@@ -1,4 +1,5 @@
 'use strict'
+const url = require('url');
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -25,7 +26,8 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@': resolve('src'),
+            '~': resolve('src'),
+            '@': resolve('node_modules'),
         }
     },
     module: {
@@ -58,11 +60,19 @@ module.exports = {
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-                }
+                exclude: /favicon\.png$/,
+                // loader: 'url-loader',
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                    }
+                }],
+                // options: {
+                //     limit: 10000,
+                //     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                // }
             }
         ]
     },
@@ -77,5 +87,25 @@ module.exports = {
         net: 'empty',
         tls: 'empty',
         child_process: 'empty'
-    }
+    },
+    devServer: {
+        host: '127.0.0.1',
+        proxy: {
+            '/uploader-web/*': {
+                target: 'http://127.0.0.1:8090',
+                // target: "http://10.209.130.132:8090",
+                changeOrigin: false,
+                pathRewrite: {},
+                bypass: function (req, res, proxyOptions) {
+                    req.headers.host = '127.0.0.1'
+                    var apiname = req._parsedUrl.pathname;
+                    var querystring = req._parsedUrl.query;
+                    var mockstring = '';
+                }
+
+            }
+        },
+        // historyApiFallback: {index: url.parse(options.dev ? '/assets/' : publicPath).pathname}
+    },
+    devtool: '#source-map'
 }
