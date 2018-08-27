@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <myUploader></myUploader>
+        <myUploader/>
     </div>
 </template>
 

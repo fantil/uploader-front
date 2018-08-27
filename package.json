@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "element-ui": "^2.4.6",
+    "js-base64": "^2.4.8",
+    "js-md5": "^0.7.3",
     "vue": "^2.5.2",
-    "vue-simple-uploader": "^0.5.3"
+    "vue-simple-uploader": "^0.5.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

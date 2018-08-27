@@ -4792,9 +4792,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simple-uploader.js@^0.3.2:
-  version "0.3.2"
-  resolved "http://registry.npm.taobao.org/simple-uploader.js/download/simple-uploader.js-0.3.2.tgz#fc567fa280485ae437271421586e84feb96d8721"
+simple-uploader.js@^0.4.0:
+  version "0.4.0"
+  resolved "http://registry.npm.taobao.org/simple-uploader.js/download/simple-uploader.js-0.4.0.tgz#cd75f28fb495d3259fe747e0f6cc7a318287d30f"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -5398,11 +5398,11 @@ vue-loader@^13.3.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-simple-uploader@^0.5.3:
-  version "0.5.3"
-  resolved "http://registry.npm.taobao.org/vue-simple-uploader/download/vue-simple-uploader-0.5.3.tgz#6a0647f2705a10396e3d8981e399e0d1c3fe4404"
+vue-simple-uploader@^0.5.4:
+  version "0.5.4"
+  resolved "http://registry.npm.taobao.org/vue-simple-uploader/download/vue-simple-uploader-0.5.4.tgz#d8f5313cba70c9bad2dd5c0850caaa9b929807c0"
   dependencies:
-    simple-uploader.js "^0.3.2"
+    simple-uploader.js "^0.4.0"
 
 vue-style-loader@^3.0.0, vue-style-loader@^3.0.1:
   version "3.1.2"
