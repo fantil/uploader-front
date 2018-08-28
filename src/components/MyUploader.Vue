@@ -23,6 +23,9 @@
                     // testMethod: this.chunkCheck,
                     // uploadMethod: this.handleUpload,
                     testChunks: true,
+                    chunkSize: 5*1024*1024,
+                    forceChunkSize: true,
+                    simultaneousUploads: 5,
                     generateUniqueIdentifier: this.generateIdentifier
                 },
                 attrs: {
@@ -63,6 +66,7 @@
                 // console.log("current task handleFileAdded, file:" + file, + "event:" + event)
             },
             handleFileSuccess(rootFile, file, message, chunk) {
+                console.log(rootFile)
                 console.log(file)
                 console.log(chunk)
                 if(file.chunks.length == 1) {
@@ -72,7 +76,9 @@
                 store.dispatch(DispatchActions.UPLOAD_MERGE, {
                     params: {
                         filename: file.name,
-                        identifier: file.uniqueIdentifier
+                        identifier: file.uniqueIdentifier,
+                        // totalChunks: file.totalChunks
+                        totalChunks: file.chunks.length
                     }
                 }).then(() => {
                         console.log("chunks merged")
