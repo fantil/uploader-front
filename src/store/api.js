@@ -6,7 +6,8 @@ import Vue from 'vue'
 import './http'
 var fetchApis = {};
 const APIS = {
-    UPLOAD_MERGE: "/uploader-web/chunkMerge",//合并分片
+    UPLOAD_MERGE: "/uploader-web/upload/chunkMerge",//合并分片
+    LIST_FILES: "/uploader-web/download/listFiles",//显示文件列表
 };
 const postPrefix = ['post', 'save', 'delete'];
 function isPostAction(key) {

@@ -31,8 +31,8 @@
                 attrs: {
                     accept: 'image/*'
                 },
-                uploadTarget: 'http://localhost:8090/uploader-web/upload',
-                chunkCheckTarget: 'http://localhost:8090/uploader-web/chunkCheck',
+                uploadTarget: 'http://localhost:8090/uploader-web/upload/upload',
+                chunkCheckTarget: 'http://localhost:8090/uploader-web/upload/chunkCheck',
             }
         },
         methods: {
