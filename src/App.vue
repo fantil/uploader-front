@@ -1,16 +1,19 @@
 <template>
     <div id="app">
+        <my-downloader/>
         <myUploader/>
     </div>
 </template>
 
 <script>
 import MyUploader from './components/MyUploader'
+import MyDownloader from './components/MyDownloader'
 
 export default {
     name: 'App',
     components: {
-        myUploader: MyUploader
+        myUploader: MyUploader,
+        myDownloader: MyDownloader
     },
     data () {
         return {

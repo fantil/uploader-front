@@ -31,7 +31,7 @@
                 attrs: {
                     accept: 'image/*'
                 },
-                uploadTarget: 'http://localhost:8090/uploader-web/upload/upload',
+                uploadTarget: 'http://localhost:8090/uploader-web/upload/file',
                 chunkCheckTarget: 'http://localhost:8090/uploader-web/upload/chunkCheck',
             }
         },
@@ -69,7 +69,7 @@
                 console.log(rootFile)
                 console.log(file)
                 console.log(chunk)
-                if(file.chunks.length == 1) {
+                if(file.chunks.length === 1) {
                     console.log("chunk length == 1, return")
                     return
                 }

@@ -8,6 +8,7 @@ var fetchApis = {};
 const APIS = {
     UPLOAD_MERGE: "/uploader-web/upload/chunkMerge",//合并分片
     LIST_FILES: "/uploader-web/download/listFiles",//显示文件列表
+    DOWNLOAD_FILE: "/uploader-web/download/file",//下载文件
 };
 const postPrefix = ['post', 'save', 'delete'];
 function isPostAction(key) {
