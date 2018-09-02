@@ -4,7 +4,21 @@
                   :options="options"
                   @file-added="handleFileAdded"
                   @file-success="handleFileSuccess"
-                  class="uploader-example">
+                  class="my-uploader">
+            <el-dropdown placement="bottom">
+                <el-button  class="el-dropdown-link">
+                    上传 <i class="el-icon-arrow-down el-icon-right"></i>
+                </el-button>
+                <el-dropdown-menu  slot="dropdown">
+                    <el-dropdown-item>
+                        <my-uploader-btn class="my-uploader-btn">上传文件</my-uploader-btn>
+                    </el-dropdown-item>
+                    <el-dropdown-item>
+                        <my-uploader-btn class="my-uploader-btn" :directory="true">上传文件夹</my-uploader-btn>
+                    </el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+            <slot></slot>
         </uploader>
     </div>
 </template>
@@ -13,8 +27,12 @@
 <script>
     import md5 from 'js-md5';
     import {store, DispatchActions} from '~/store';
+    import MyUploaderBtn from './uploader/MyUploaderBtn';
     export default {
         name: 'MyUploader',
+        components: {
+            myUploaderBtn: MyUploaderBtn,
+        },
         data () {
             return {
                 options: {
@@ -101,20 +119,23 @@
 </script>
 
 <style>
-    .uploader-example {
-        width: 880px;
-        padding: 15px;
-        margin: 40px auto 0;
-        font-size: 12px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    .my-uploader {
+        /*width: 880px;*/
+        /*padding: 15px;*/
+        /*margin: 40px auto 0;*/
+        /*font-size: 12px;*/
+        /*box-shadow: 0 0 10px rgba(0, 0, 0, .4);*/
     }
-    .uploader-example .uploader-btn {
-        margin-right: 4px;
+    .my-uploader-btn {
+        display: inline;
+        padding: 0;
+        border: none;
+        font-size: small;
+        line-height: 1;
+        border-radius: 0;
+        margin: 0;
     }
-    .uploader-example .uploader-list {
-        max-height: 440px;
-        overflow: auto;
-        overflow-x: hidden;
-        overflow-y: auto;
+    .my-uploader-btn:hover {
+        background-color: rgba(236, 245, 255, 1);
     }
 </style>

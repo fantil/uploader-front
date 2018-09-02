@@ -1,25 +1,25 @@
 <template>
-    <div>
+    <div style="position: relative;">
         <el-table
                 :data="fileList"
                 style="width: 100%">
             <el-table-column
                     label="文件名"
-                    width="180">
+                    align="center"
+                    style="width: 30%">
                 <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span style="margin-left: 10px">{{ scope.row.name }}</span>
+                    <span>{{ scope.row.name }}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="操作">
+            <el-table-column label="操作" align="center" style="" style="width: 30%">
                 <template slot-scope="scope">
                     <el-button
-                            size="mini"
-                            @click="handleDownload(scope.$index, scope.row)"><a :href="scope.row.href">下载</a></el-button>
+                        size="small"
+                        @click="handleDownload(scope.$index, scope.row)"><a :href="scope.row.href">下载</a></el-button>
                     <el-button
-                            size="mini"
-                            type="danger"
-                            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                        size="small"
+                        type="danger"
+                        @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -60,7 +60,7 @@
             handleDownload(index, data) {
                 console.log("index:" + index);
                 console.log(data);
-            }
+            },
             handleDelete(index, data) {
                 console.log("index:" + index);
                 console.log(data)

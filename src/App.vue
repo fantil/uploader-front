@@ -1,19 +1,26 @@
 <template>
     <div id="app">
-        <my-downloader/>
-        <myUploader/>
+
+        <my-uploader>
+            <my-uploader-drop>
+                <my-downloader/>
+            </my-uploader-drop>
+        </my-uploader>
+
     </div>
 </template>
 
 <script>
 import MyUploader from './components/MyUploader'
 import MyDownloader from './components/MyDownloader'
+import MyUploaderDrop from './components/uploader/MyUploaderDrop'
 
 export default {
     name: 'App',
     components: {
         myUploader: MyUploader,
-        myDownloader: MyDownloader
+        myDownloader: MyDownloader,
+        myUploaderDrop: MyUploaderDrop
     },
     data () {
         return {
