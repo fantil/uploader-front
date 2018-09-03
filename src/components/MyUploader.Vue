@@ -18,6 +18,10 @@
                     </el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
+            <el-button type="primary" round @mouseover.native="showFileList" @mouseout.native="hideFileList">上传列表</el-button>
+
+            <uploader-list v-show="fileListDisplay"></uploader-list>
+
             <slot></slot>
         </uploader>
     </div>
@@ -28,13 +32,16 @@
     import md5 from 'js-md5';
     import {store, DispatchActions} from '~/store';
     import MyUploaderBtn from './uploader/MyUploaderBtn';
+    import UploadList from "element-ui/packages/upload/src/upload-list";
     export default {
         name: 'MyUploader',
         components: {
+            UploadList,
             myUploaderBtn: MyUploaderBtn,
         },
         data () {
             return {
+                fileListDisplay: false,
                 options: {
                     // target: 'http://localhost:8090/uploader-web/upload',
                     target: this.switchTarget,
@@ -106,7 +113,12 @@
                     });
             },
 
-
+            showFileList() {
+                this.fileListDisplay = true
+            },
+            hideFileList() {
+                this.fileListDisplay = false
+            },
             generateIdentifier(file) {
                 console.log(file)
                 if(file != null) {
