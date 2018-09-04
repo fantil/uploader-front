@@ -18,10 +18,25 @@
                     </el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
-            <el-button type="primary" round @mouseover.native="showFileList" @mouseout.native="hideFileList">上传列表</el-button>
+            <!--<el-button type="primary" round @mouseover.native="showFileList" @mouseout.native="hideFileList">上传列表</el-button>-->
 
-            <uploader-list v-show="fileListDisplay"></uploader-list>
+            <uploader-list>
+                <template slot-scope="slotProp">
+                    <el-dropdown placement="bottom">
+                        <el-button  class="el-dropdown-link">
+                            上传列表 <i class="el-icon-arrow-down el-icon-right"></i>
+                        </el-button>
+                        <el-dropdown-menu  slot="dropdown">
+                            <el-dropdown-item v-for="file in slotProp.fileList" :key="file.id">
+                                <uploader-file :file="file" :list="true"></uploader-file>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </template>
+            </uploader-list>
 
+
+            <!--<uploader-list v-show="fileListDisplay"/>-->
             <slot></slot>
         </uploader>
     </div>
@@ -39,8 +54,14 @@
             UploadList,
             myUploaderBtn: MyUploaderBtn,
         },
+        // watch: {
+        //     uploader (newValue) {
+        //         this.fileList = newValue.fileList
+        //     }
+        // },
         data () {
             return {
+                // fileList: [],
                 fileListDisplay: false,
                 options: {
                     // target: 'http://localhost:8090/uploader-web/upload',
