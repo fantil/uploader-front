@@ -5,40 +5,33 @@
                   @file-added="handleFileAdded"
                   @file-success="handleFileSuccess"
                   class="my-uploader">
-            <el-dropdown placement="bottom">
-                <el-button  class="el-dropdown-link">
-                    上传 <i class="el-icon-arrow-down el-icon-right"></i>
-                </el-button>
-                <el-dropdown-menu  slot="dropdown">
-                    <el-dropdown-item>
-                        <my-uploader-btn class="my-uploader-btn">上传文件</my-uploader-btn>
-                    </el-dropdown-item>
-                    <el-dropdown-item>
-                        <my-uploader-btn class="my-uploader-btn" :directory="true">上传文件夹</my-uploader-btn>
-                    </el-dropdown-item>
-                </el-dropdown-menu>
-            </el-dropdown>
-            <!--<el-button type="primary" round @mouseover.native="showFileList" @mouseout.native="hideFileList">上传列表</el-button>-->
-
-            <uploader-list>
-                <template slot-scope="slotProp">
+            <el-container>
+                <el-aside width="40%">
                     <el-dropdown placement="bottom">
                         <el-button  class="el-dropdown-link">
-                            上传列表 <i class="el-icon-arrow-down el-icon-right"></i>
+                            上传 <i class="el-icon-arrow-down el-icon-right"></i>
                         </el-button>
                         <el-dropdown-menu  slot="dropdown">
-                            <el-dropdown-item v-for="file in slotProp.fileList" :key="file.id">
-                                <uploader-file :file="file" :list="true"></uploader-file>
+                            <el-dropdown-item>
+                                <my-uploader-btn class="my-uploader-btn">上传文件</my-uploader-btn>
+                            </el-dropdown-item>
+                            <el-dropdown-item>
+                                <my-uploader-btn class="my-uploader-btn" :directory="true">上传文件夹</my-uploader-btn>
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
-                </template>
-            </uploader-list>
+                    <!--<el-button type="primary" round @mouseover.native="showFileList" @mouseout.native="hideFileList">上传列表</el-button>-->
+
+                    <uploader-list></uploader-list>
+                </el-aside>
+                <el-main>
+                    <slot></slot>
+                </el-main>
+            </el-container>
 
 
-            <!--<uploader-list v-show="fileListDisplay"/>-->
-            <slot></slot>
         </uploader>
+            <!--<uploader-list v-show="fileListDisplay"/>-->
     </div>
 </template>
 
@@ -48,9 +41,11 @@
     import {store, DispatchActions} from '~/store';
     import MyUploaderBtn from './uploader/MyUploaderBtn';
     import UploadList from "element-ui/packages/upload/src/upload-list";
+    import ElAside from "element-ui/packages/aside/src/main";
     export default {
         name: 'MyUploader',
         components: {
+            ElAside,
             UploadList,
             myUploaderBtn: MyUploaderBtn,
         },

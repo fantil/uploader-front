@@ -1,7 +1,7 @@
 <template>
     <div id="app">
 
-        <my-uploader style="width: 60%; position: relative; left: 20%">
+        <my-uploader style="width: 100%">
             <my-uploader-drop>
                 <my-downloader/>
             </my-uploader-drop>

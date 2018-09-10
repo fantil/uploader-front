@@ -8,7 +8,7 @@
                     align="center"
                     style="width: 30%">
                 <template slot-scope="scope">
-                    <span>{{ scope.row.name }}</span>
+                    <span> {{ scope.row.name }} </span>
                 </template>
             </el-table-column>
             <el-table-column label="操作" align="center" style="" style="width: 30%">
@@ -34,6 +34,7 @@
         data () {
             return {
                 fileList: [],
+                displayList: [],
                 baseDownloadHref: "/uploader-web/download/file?fileName="
             }
         },
@@ -45,10 +46,13 @@
                         console.log(result.data);
                         if (result.data != null && result.data !== "") {
                             this.fileList = result.data
+                            // this.displayList = new Array[this.fileList.length];
                             for (let i = 0; i < this.fileList.length; i++) {
                                 let file = this.fileList[i];
                                 file.href = this.baseDownloadHref + file.name;
+                                this.displayList[i] = false;
                             }
+
                         } else {
                             this.fileList = []
                         }
@@ -64,6 +68,14 @@
             handleDelete(index, data) {
                 console.log("index:" + index);
                 console.log(data)
+            },
+            showHandleButton(index, data) {
+                console.log(index, this.displayList[index])
+                this.displayList[index] = true;
+                console.log(index, this.displayList[index])
+            },
+            hideHandleButton(index, data) {
+                this.displayList[index] = false;
             }
         },
         mounted: function () {
