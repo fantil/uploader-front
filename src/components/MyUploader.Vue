@@ -72,6 +72,7 @@
                 attrs: {
                     accept: 'image/*'
                 },
+                currentDir: "/asd/efw/fwefe/fefs",
                 uploadTarget: 'http://localhost:8090/uploader-web/upload/file',
                 chunkCheckTarget: 'http://localhost:8090/uploader-web/upload/chunkCheck',
             }
@@ -119,7 +120,9 @@
                         filename: file.name,
                         identifier: file.uniqueIdentifier,
                         // totalChunks: file.totalChunks
-                        totalChunks: file.chunks.length
+                        totalChunks: file.chunks.length,
+                        totalSize: file.size,
+                        currentDir: this.currentDir
                     }
                 }).then(() => {
                         console.log("chunks merged")
