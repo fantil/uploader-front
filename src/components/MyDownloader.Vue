@@ -35,13 +35,16 @@
             return {
                 fileList: [],
                 displayList: [],
-                baseDownloadHref: "/uploader-web/download/file?fileName="
+                currentDir: "/asd/efw/fwefe/fefs",
+                baseDownloadHref: "/uploader-web/download/file?fileId="
             }
         },
         methods: {
             handleListFiles() {
                 store.dispatch(DispatchActions.LIST_FILES, {
-
+                    params: {
+                        currentDir: this.currentDir
+                    }
                 }).then(result => {
                         console.log(result.data);
                         if (result.data != null && result.data !== "") {
@@ -49,7 +52,7 @@
                             // this.displayList = new Array[this.fileList.length];
                             for (let i = 0; i < this.fileList.length; i++) {
                                 let file = this.fileList[i];
-                                file.href = this.baseDownloadHref + file.name;
+                                file.href = this.baseDownloadHref + file.id;
                                 this.displayList[i] = false;
                             }
 
