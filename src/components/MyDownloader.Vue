@@ -35,7 +35,7 @@
             return {
                 fileList: [],
                 displayList: [],
-                currentDir: "/asd/efw/fwefe/fefs",
+                currentDir: "/",
                 baseDownloadHref: "/uploader-web/download/file?fileId="
             }
         },

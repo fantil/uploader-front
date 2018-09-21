@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "rimraf dist && webpack --config build/webpack.dev.conf.js -p --progress"
   },
   "dependencies": {
     "element-ui": "^2.4.6",

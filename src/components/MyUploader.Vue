@@ -72,7 +72,7 @@
                 attrs: {
                     accept: 'image/*'
                 },
-                currentDir: "/asd/efw/fwefe/fefs",
+                currentDir: "/",
                 uploadTarget: 'http://localhost:8090/uploader-web/upload/file',
                 chunkCheckTarget: 'http://localhost:8090/uploader-web/upload/chunkCheck',
             }
