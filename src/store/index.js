@@ -16,10 +16,13 @@ for (let actionName in apis) {
 }
 const store = new Vuex.Store({
     state: {
+        city: "杭州"
     },
     actions: actions,
     mutations: {
-
+        changeCity(state, city) {
+            state.city = city
+        }
     },
     getters: {}
 });
