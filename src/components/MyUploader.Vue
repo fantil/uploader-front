@@ -38,7 +38,7 @@
 
 <script>
     import md5 from 'js-md5';
-    import {store, DispatchActions} from '~/store';
+    import {store, DispatchActions} from '@/store';
     import MyUploaderBtn from './uploader/MyUploaderBtn';
     import UploadList from "element-ui/packages/upload/src/upload-list";
     import ElAside from "element-ui/packages/aside/src/main";

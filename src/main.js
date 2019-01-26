@@ -6,7 +6,7 @@ import App from './App'
 import {store} from './store'
 import router from './router'
 import ElementUI from 'element-ui';
-import '@/element-ui/lib/theme-chalk/index.css';
+import '^/element-ui/lib/theme-chalk/index.css';
 import uploader from 'vue-simple-uploader';
 import 'styles/reset.css'
 import 'styles/border.css'

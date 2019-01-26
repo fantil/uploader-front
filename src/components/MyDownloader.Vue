@@ -28,7 +28,7 @@
 
 
 <script>
-    import {store, DispatchActions} from '~/store';
+    import {store, DispatchActions} from '@/store';
     export default {
         name: 'Download',
         data () {
